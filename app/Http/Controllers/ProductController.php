@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -28,7 +29,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $product = new Product();
+        $product->name = $request->product_name;
+        $product->label = $request->product_label;
+        $product->price = $request->product_price;
+
+        $product->save();
+        return Redirect::route("product.index");
     }
 
     /**
