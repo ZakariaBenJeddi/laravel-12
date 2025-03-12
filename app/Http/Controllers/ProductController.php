@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class Test extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view("AfficherProduct",["products"=>Product::all()]);
     }
 
     /**
@@ -19,7 +20,7 @@ class Test extends Controller
      */
     public function create()
     {
-        //
+        return view("ProductForm");
     }
 
     /**
@@ -33,7 +34,7 @@ class Test extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
         //
     }
@@ -41,7 +42,7 @@ class Test extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
         //
     }
@@ -49,7 +50,7 @@ class Test extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -57,7 +58,7 @@ class Test extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $product)
     {
         //
     }
