@@ -44,7 +44,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $product = Product::find($product);
+        return view("AfficherOneProduct",["product"=>$product]);
     }
 
     /**
@@ -68,6 +69,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return Redirect::route("product.index");
     }
 }

@@ -23,32 +23,27 @@
           </tr>
       </thead>
       <tbody>
-        @foreach ($products as $product)
+        @foreach ($product as $p)
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {{$product->name}}
+                {{$p->name}}
               </th>
               <td class="px-6 py-4">
-                {{$product->label}}
+                {{$p->label}}
               </td>
               <td class="px-6 py-4">
-                {{$product->price}}
+                {{$p->price}}
               </td>
               <td class="px-6 py-a4">
                 <div class="flex justify-center items-center gap-5">
-                  <a href="{{ route('product.show',$product->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                    Voir
+                  <a href="{{ route('product.show',$p->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                    Edit
                   </a>
-                  <form action="{{ route('product.destroy',$product->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="Remove" class="font-medium text-red-600 dark:text-red-500">
-                  </form>
+                  <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
                 </div>
               </td>
           </tr>
         @endforeach
-        {{$products->links()}}
       </tbody>
   </table>
 </div>
