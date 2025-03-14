@@ -10,6 +10,11 @@
 <body>
   @include('components.nav')
   <main>
+    @if (session()->has("success"))
+        <x-alert color="blue">
+          Operation Bien Effectuer
+        </x-alert>
+    @endif
     @yield('content')
   </main>
 </body>

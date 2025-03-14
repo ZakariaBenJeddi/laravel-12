@@ -36,7 +36,7 @@ class ProductController extends Controller
         $product->price = $request->product_price;
 
         $product->save();
-        return Redirect::route("product.index");
+        return Redirect::route("product.index")->with("success","Product Added Successfuly");
     }
 
     /**
@@ -70,6 +70,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return Redirect::route("product.index");
+        return Redirect::route("product.index")->with("success","Product Deleted Successfuly");
     }
 }
