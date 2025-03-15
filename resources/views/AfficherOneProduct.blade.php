@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title',"Product List")
-
+{{-- @dd($product) --}}
 @section('content')
     
 
@@ -23,27 +23,25 @@
           </tr>
       </thead>
       <tbody>
-        @foreach ($product as $p)
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {{$p->name}}
+                {{$product->name}}
               </th>
               <td class="px-6 py-4">
-                {{$p->label}}
+                {{$product->label}}
               </td>
               <td class="px-6 py-4">
-                {{$p->price}}
+                {{$product->price}}
               </td>
               <td class="px-6 py-a4">
                 <div class="flex justify-center items-center gap-5">
-                  <a href="{{ route('product.show',$p->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                  <a href="{{ route('product.show',$product->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                     Edit
                   </a>
                   <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
                 </div>
               </td>
           </tr>
-        @endforeach
       </tbody>
   </table>
 </div>

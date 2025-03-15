@@ -9,4 +9,8 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = ["name","label","price"];
+
+    public function getRouteKeyName(){
+        return "id";
+    }
 }

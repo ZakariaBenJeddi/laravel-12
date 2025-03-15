@@ -30,12 +30,24 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $product = new Product();
-        $product->name = $request->product_name;
-        $product->label = $request->product_label;
-        $product->price = $request->product_price;
+        // $product = new Product();
+        // $product->name = $request->product_name;
+        // $product->label = $request->product_label;
+        // $product->price = $request->product_price;
+        // $product->save();
 
-        $product->save();
+        $request->validate([
+            "product_name" => "required",
+            "product_label" => "required",
+            "product_price" => "required|numeric",
+        ],[
+            "product_name.required" => "Name darori a sahbi",
+        ]);
+        Product::create([
+            'name' => $request->product_name,
+            'label' => $request->product_label,
+            'price' => $request->product_price,
+        ]);
         return Redirect::route("product.index")->with("success","Product Added Successfuly");
     }
 
@@ -44,8 +56,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $product = Product::find($product);
-        return view("AfficherOneProduct",["product"=>$product]);
+        // $product = Product::find($product);
+        return view("AfficherOneProduct",compact('product'));
     }
 
     /**
