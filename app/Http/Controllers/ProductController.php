@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
@@ -36,13 +37,15 @@ class ProductController extends Controller
         // $product->price = $request->product_price;
         // $product->save();
 
-        $request->validate([
+        $formFields = $request->validate([
             "product_name" => "required",
             "product_label" => "required",
             "product_price" => "required|numeric",
         ],[
             "product_name.required" => "Name darori a sahbi",
         ]);
+        $formFields['product_name'] = Hash::make($request->product_name);
+        dd($formFields);
         Product::create([
             'name' => $request->product_name,
             'label' => $request->product_label,
