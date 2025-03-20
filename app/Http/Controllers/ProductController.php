@@ -37,15 +37,17 @@ class ProductController extends Controller
         // $product->price = $request->product_price;
         // $product->save();
 
-        $formFields = $request->validate([
-            "product_name" => "required",
-            "product_label" => "required",
-            "product_price" => "required|integer",
-        ],[
-            "product_name.required" => "Name darori a sahbi",
-        ]);
+        // $formFields = $request->validate([
+        //     "product_name" => "required",
+        //     "product_label" => "required",
+        //     "product_price" => "required|integer",
+        // ],[
+        //     "product_name.required" => "Name darori a sahbi",
+        //     "product_label.required" => "Label darori a sahbi",
+        //     "product_price.required" => "Price darori a sahbi",
+        // ]);
         $formFields['product_name'] = Hash::make($request->product_name);
-        dd($formFields);
+        // dd($formFields);
         Product::create([
             'name' => $request->product_name,
             'label' => $request->product_label,
