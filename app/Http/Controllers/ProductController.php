@@ -79,7 +79,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $p = Product::find($product);
+        return view("updateProduct",['product'=>$p]);
     }
 
     /**
