@@ -71,7 +71,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $prodcut = Product::find($product);
     }
 
     /**
