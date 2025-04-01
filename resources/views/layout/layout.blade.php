@@ -14,10 +14,12 @@
         <x-alert color="blue">
           Operation Bien Effectuer
         </x-alert>
-    @else (session()->has("success"))
-        <x-alert color="red">
-          Operation Non Effectuer
-        </x-alert>
+    @endif
+
+    @if (session()->has("warinig"))
+      <x-alert color="red">
+        Operation Non Effectuer
+      </x-alert>
     @endif
 
 
