@@ -60,15 +60,16 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
-
         // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
+        //     'driver' => 'eloquent',
+            // 'model' => env('AUTH_MODEL', App\Models\User::class),
+            // 'model' => env('AUTH_MODEL', App\Models\Utilisateur::class),
         // ],
+
+        'users' => [
+            'driver' => 'database',
+            'table' => 'utilisateurs',
+        ],
     ],
 
     /*
