@@ -70,6 +70,7 @@ class UtilisateurController extends Controller
      */
     public function destroy(Utilisateur $utilisateur)
     {
-        //
+        $utilisateur->destroy($utilisateur->id);
+        return redirect()->route('utilisateur.index')->with('success', 'Utilisateur supprimé avec succès.');
     }
 }
