@@ -32,6 +32,7 @@ class ProductRequest extends FormRequest
     {
         return [
             "product_name.required" => "waaaa sa7bi",
+            "product_label.required" => "product label false",
         ];
     }
 }
