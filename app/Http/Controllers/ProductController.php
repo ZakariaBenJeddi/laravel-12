@@ -23,6 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        // return view("ProductFormBlade");
         return view("ProductForm");
     }
 
